@@ -2,6 +2,8 @@
 
 https://github.com/microsoft/vscode/issues/97181
 
+https://code.visualstudio.com/api/extension-guides/custom-editors
+
 https://github.com/microsoft/vscode-extension-samples/tree/master/custom-editor-sample
 
 -----
