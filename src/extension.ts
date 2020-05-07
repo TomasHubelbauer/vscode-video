@@ -1,27 +1,64 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import { CancellationToken, CustomDocument, CustomDocumentBackup, CustomDocumentBackupContext, CustomDocumentEditEvent, CustomDocumentOpenContext, CustomEditorProvider, Disposable, EventEmitter, ExtensionContext, Uri, WebviewPanel, window } from 'vscode';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "vscode-video" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('vscode-video.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from VS Code Video!');
-	});
-
-	context.subscriptions.push(disposable);
+export function activate(context: ExtensionContext) {
+	context.subscriptions.push(VideoCustomEditorProvider.register(context));
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }
+
+class VideoCustomEditorProvider implements CustomEditorProvider<VideoDocument> {
+	public static register(context: ExtensionContext): Disposable {
+		return window.registerCustomEditorProvider2(
+			VideoCustomEditorProvider.viewType,
+			new VideoCustomEditorProvider(context),
+			{
+				supportsMultipleEditorsPerDocument: false,
+			});
+	}
+
+	private static readonly viewType = 'vscode-video';
+
+	constructor(private readonly _context: ExtensionContext) {
+	}
+
+	private readonly _onDidChangeCustomDocument = new EventEmitter<CustomDocumentEditEvent<VideoDocument>>();
+	public readonly onDidChangeCustomDocument = this._onDidChangeCustomDocument.event;
+
+	saveCustomDocument(document: VideoDocument, cancellation: CancellationToken): Thenable<void> {
+		throw new Error("Method not implemented.");
+	}
+	saveCustomDocumentAs(document: VideoDocument, destination: Uri, cancellation: CancellationToken): Thenable<void> {
+		throw new Error("Method not implemented.");
+	}
+	revertCustomDocument(document: VideoDocument, cancellation: CancellationToken): Thenable<void> {
+		throw new Error("Method not implemented.");
+	}
+	backupCustomDocument(document: VideoDocument, context: CustomDocumentBackupContext, cancellation: CancellationToken): Thenable<CustomDocumentBackup> {
+		throw new Error("Method not implemented.");
+	}
+	openCustomDocument(uri: Uri, openContext: CustomDocumentOpenContext, token: CancellationToken): VideoDocument | Thenable<VideoDocument> {
+		throw new Error("Method not implemented.");
+	}
+	resolveCustomEditor(document: VideoDocument, webviewPanel: WebviewPanel, token: CancellationToken): void | Thenable<void> {
+		throw new Error("Method not implemented.");
+	}
+}
+
+interface VideoDocumentDelegate {
+	getFileData(): Promise<Uint8Array>;
+}
+
+class VideoDocument extends Disposable implements CustomDocument {
+	public readonly uri: Uri;
+	dispose(): void {
+		throw new Error("Method not implemented.");
+	}
+
+	private constructor(uri: Uri, initialContent: Uint8Array, delegate: VideoDocumentDelegate) {
+		super(() => { });
+		this.uri = uri;
+		//this._documentData = initialContent;
+		//this._delegate = delegate;
+	}
+}

@@ -3,6 +3,7 @@
 	"displayName": "VS Code Video",
 	"description": "Previews video files in VS Code",
 	"version": "0.0.1",
+	"enableProposedApi": true,
 	"engines": {
 		"vscode": "^1.44.0"
 	},
@@ -10,14 +11,19 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:vscode-video.helloWorld"
+		"onCustomEditor:vscode-video"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [
+		"customEditors": [
 			{
-				"command": "vscode-video.helloWorld",
-				"title": "Hello World"
+				"viewType": "vscode-video",
+				"displayName": "VS Code Video",
+				"selector": [
+					{
+						"filenamePattern": "*.mp4"
+					}
+				]
 			}
 		]
 	},

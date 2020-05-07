@@ -1,5 +1,11 @@
 # vscode-video README
 
+https://github.com/microsoft/vscode/issues/97181
+
+https://github.com/microsoft/vscode-extension-samples/tree/master/custom-editor-sample
+
+-----
+
 This is the README for your extension "vscode-video". After writing up a brief description, we recommend including the following sections.
 
 ## Features
