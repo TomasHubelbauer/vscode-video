@@ -12,7 +12,8 @@
 			"runtimeExecutable": "${execPath}",
 			"args": [
 				"--extensionDevelopmentPath=${workspaceFolder}",
-				"--enable-proposed-api undefined_publisher.vscode-video"
+				"--enable-proposed-api undefined_publisher.vscode-video",
+				"${workspaceFolder}/demo"
 			],
 			"outFiles": [
 				"${workspaceFolder}/out/**/*.js"

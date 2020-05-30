@@ -21,7 +21,7 @@
 				"displayName": "VS Code Video",
 				"selector": [
 					{
-						"filenamePattern": "*.mp4"
+						"filenamePattern": "*.webm"
 					}
 				]
 			}
