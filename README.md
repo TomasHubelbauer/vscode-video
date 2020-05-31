@@ -20,6 +20,11 @@ https://github.com/microsoft/vscode-extension-samples/tree/master/custom-editor-
 
 ## To-Do
 
-### Find a way to either allow the `src` path or to post the data
+### Attempt launching VLC/FFMPEG and streaming an MJPEG stream into the webview
 
-https://github.com/microsoft/vscode-extension-samples/blob/master/custom-editor-sample/src/pawDrawEditor.ts#L259
+This way the media server would be VLC/FFMPEG outside of VS Code but the render
+surface would still be the webview.
+
+I played around with this somewhat in
+https://github.com/TomasHubelbauer/net-http-listener-mjpeg-stream
+.
