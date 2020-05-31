@@ -71,11 +71,11 @@ export default class VideoCustomEditorProvider implements vscode.CustomEditorPro
 			const [page] = await browser.pages();
 
 		await page.goto(document.uri.fsPath);
-		await page.waitForFunction(() => (document as any).querySelector('video').readyState === 4);
+		await page.waitForFunction(() => window.document.querySelector('video')?.readyState === 4);
 
 		// TODO: Find out why this does not have the video native dimensions
 		const clip = await page.evaluate(() => {
-			const video = (document as any).querySelector('video');
+			const video = window.document.querySelector('video')!;
 			video.controls = false;
 			video.width = video.videoWidth;
 			video.height = video.videoHeight;
@@ -86,7 +86,7 @@ export default class VideoCustomEditorProvider implements vscode.CustomEditorPro
 			// TODO: Consider using the screencast API instead of the screenshot API
 			const dataUri = 'data:image/png;base64,' + await page.screenshot({ encoding: 'base64', clip });
 			const { time, duration } = await page.evaluate(() => {
-				const video = (document as any).querySelector('video');
+				const video = window.document.querySelector('video')!;
 				return { time: video.currentTime, duration: video.duration };
 			});
 

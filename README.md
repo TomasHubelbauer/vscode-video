@@ -31,10 +31,6 @@ https://github.com/microsoft/vscode-extension-samples/tree/master/custom-editor-
 
 ### Try using the screencast API for a better performance (but what about quality?)
 
-### Figure out how to make VS Code shut up about `document` in Puppeteer `evaluate`
-
-So that I don't have to do `(document as any)` each time.
-
 ### Add playback controls which use `vscode.postMessage` to the editor provider
 
 ### Turn the `progress` element into a scrubbar which also uses `postMessage`
@@ -49,10 +45,6 @@ Perhaps I need to open a `data:text/html` page with the video or maybe event a
 temporary local file (in case the data URL cannot play the video) so that user
 agent styles are not forcing the video to fit the viewport or whatever they are
 doing right now.
-
-### Fix the error with the Puppeteer types: cannot find name `Element`
-
-Might need to add the DOM TypeScript library to the TS configuration file.
 
 ### Handle the user not having Chrome installed using an error message
 

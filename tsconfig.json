@@ -4,7 +4,10 @@
 		"target": "es6",
 		"outDir": "out",
 		"lib": [
-			"es6"
+			"es6",
+
+			// Import DOM even though this is Node for Puppeteer types to work
+			"DOM"
 		],
 		"sourceMap": true,
 		"rootDir": "src",

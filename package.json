@@ -2,6 +2,7 @@
 	"name": "vscode-video",
 	"displayName": "VS Code Video",
 	"description": "Previews video files in VS Code",
+	"publisher": "TomasHubelbauer",
 	"version": "0.0.1",
 	"enableProposedApi": true,
 	"engines": {
