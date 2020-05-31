@@ -2,6 +2,11 @@
 
 Previews video files in VS Code using the custom editor API.
 
+## Installation
+
+Install from source because the extension uses proposed APIs and so it cannot
+be published to the VS Code extension marketplace.
+
 ## Prerequisites
 
 The user has to have Google Chrome installed for this extension to work.
@@ -63,3 +68,5 @@ would be very complex if not impossible due to having to handle the container.
 Use Playwright or see if Puppeteer Core still works as it is all CDP in the end.
 
 ### Consider adding audio support (mainly in the UI, Chrome plays the audio)
+
+### Publish the extension once the proposed custom editor API hits stable
