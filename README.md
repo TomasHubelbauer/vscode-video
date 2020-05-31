@@ -1,5 +1,13 @@
 # VS Code Video
 
+## Status
+
+This extension can not work because VS Code does not ship FFMPEG:
+
+- https://github.com/microsoft/vscode/issues/54097
+- https://github.com/microsoft/vscode/issues/66050
+- https://github.com/microsoft/vscode/issues/82012
+
 ## Running
 
 Use VS Code Insiders! Press F5 to start debugging the extension.

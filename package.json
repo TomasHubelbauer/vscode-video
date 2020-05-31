@@ -22,6 +22,12 @@
 				"selector": [
 					{
 						"filenamePattern": "*.webm"
+					},
+					{
+						"filenamePattern": "*.mov"
+					},
+					{
+						"filenamePattern": "*.mp4"
 					}
 				]
 			}
