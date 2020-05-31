@@ -1,4 +1,5 @@
 # VS Code Video
+![](https://github.com/tomashubelbauer/vscode-video/workflows/.github/workflows/main.yml/badge.svg)
 
 Previews video files in VS Code using the custom editor API.
 
