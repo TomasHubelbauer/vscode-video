@@ -71,3 +71,5 @@ Use Playwright or see if Puppeteer Core still works as it is all CDP in the end.
 ### Consider adding audio support (mainly in the UI, Chrome plays the audio)
 
 ### Publish the extension once the proposed custom editor API hits stable
+
+### Install Chrome or Chromium in the GitHub Actions workflow to make it go
