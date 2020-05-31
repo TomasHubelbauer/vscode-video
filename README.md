@@ -1,12 +1,21 @@
 # VS Code Video
 
-## Status
+Previews video files in VS Code using the custom editor API.
 
-This extension can not work because VS Code does not ship FFMPEG:
+## Prerequisites
 
-- https://github.com/microsoft/vscode/issues/54097
-- https://github.com/microsoft/vscode/issues/66050
-- https://github.com/microsoft/vscode/issues/82012
+The user has to have Google Chrome installed for this extension to work.
+
+## Limitations
+
+VS Code uses Chromium which does not bundle media codecs with it, thus the webview
+cannot be used to play the media directly.
+
+https://github.com/microsoft/vscode/issues/54097
+
+This extension uses Puppeteer Core and local installation of Chrome (if any) to
+play the video in Chrome and controls the headless Chrome instance so that the
+video frames are transferred over to the webview.
 
 ## Running
 
@@ -20,17 +29,45 @@ https://github.com/microsoft/vscode-extension-samples/tree/master/custom-editor-
 
 ## To-Do
 
-### Attempt launching VLC/FFMPEG and streaming an MJPEG stream into the webview
+### Try using the screencast API for a better performance (but what about quality?)
 
-This way the media server would be VLC/FFMPEG outside of VS Code but the render
-surface would still be the webview.
+### Figure out how to make VS Code shut up about `document` in Puppeteer `evaluate`
 
-I played around with this somewhat in
-https://github.com/TomasHubelbauer/net-http-listener-mjpeg-stream
-.
+So that I don't have to do `(document as any)` each time.
 
-### Attempt to use Puppeteer / Chromium with codecs and screencast it to webview
+### Add playback controls which use `vscode.postMessage` to the editor provider
 
-Puppeteer has the screencast API, local Chrome if any could be used, or Chromium
-with codecs could be used:
-https://www.npmjs.com/package/chrome-or-chromium-all-codecs-bin
+### Turn the `progress` element into a scrubbar which also uses `postMessage`
+
+### Load the JS and the CSS from bundled extension resources like example shows
+
+https://github.com/microsoft/vscode-extension-samples/tree/master/custom-editor-sample
+
+### Figure out how to make the video have its native dimensions in Puppeteer
+
+Perhaps I need to open a `data:text/html` page with the video or maybe event a
+temporary local file (in case the data URL cannot play the video) so that user
+agent styles are not forcing the video to fit the viewport or whatever they are
+doing right now.
+
+### Fix the error with the Puppeteer types: cannot find name `Element`
+
+Might need to add the DOM TypeScript library to the TS configuration file.
+
+### Handle the user not having Chrome installed using an error message
+
+### See if it would be possible to use the `Uint8Array` for better perf
+
+Maybe I could use a `canvas` instead of the image element and blit the image
+data to it.
+
+### See if a custom MediaSource could be devised for `video` element to be used
+
+This would simplify the HTML and we could use native controls but probably
+would be very complex if not impossible due to having to handle the container.
+
+### Fall back to Microsoft Edge in case Chrome and Chromium are not installed
+
+Use Playwright or see if Puppeteer Core still works as it is all CDP in the end.
+
+### Consider adding audio support (mainly in the UI, Chrome plays the audio)

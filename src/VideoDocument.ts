@@ -1,11 +1,13 @@
 import * as vscode from 'vscode';
 
 export default class VideoDocument extends vscode.Disposable implements vscode.CustomDocument {
-	dispose(): void {
-		throw new Error("Method not implemented.");
+	public disposed = false;
+	
+	public dispose(): void {
+		this.disposed = true;
 	}
 
 	constructor(public readonly uri: vscode.Uri) {
-		super(() => { });
+		super(() => this.disposed = true);
 	}
 }
