@@ -28,3 +28,9 @@ surface would still be the webview.
 I played around with this somewhat in
 https://github.com/TomasHubelbauer/net-http-listener-mjpeg-stream
 .
+
+### Attempt to use Puppeteer / Chromium with codecs and screencast it to webview
+
+Puppeteer has the screencast API, local Chrome if any could be used, or Chromium
+with codecs could be used:
+https://www.npmjs.com/package/chrome-or-chromium-all-codecs-bin
