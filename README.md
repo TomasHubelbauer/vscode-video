@@ -1,6 +1,10 @@
 # VS Code Video
 ![](https://github.com/tomashubelbauer/vscode-video/workflows/.github/workflows/main.yml/badge.svg)
 
+**Important:** This might not actually be possible because VS Code started 
+shipping with an FFmpeg library support for several video codecs:
+https://code.visualstudio.com/updates/v1_71#_ffmpeg-codecs-support
+
 Previews video files in VS Code using the custom editor API.
 
 ## Installation
