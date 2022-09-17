@@ -1,11 +1,26 @@
 # VS Code Video
 ![](https://github.com/tomashubelbauer/vscode-video/workflows/.github/workflows/main.yml/badge.svg)
 
-**Important:** This might not actually be possible because VS Code started 
-shipping with an FFmpeg library support for several video codecs:
+## Notice
+
+This repository started off as an attempt to build a VS Code extension to play
+video files in VS Code using the web browser API.
+At the time I attempted this, VS Code did not ship with the necessary codecs.
+
+At some point, that looked like it has changed:
+
 https://code.visualstudio.com/updates/v1_71#_ffmpeg-codecs-support
 
-Previews video files in VS Code using the custom editor API.
+These release notes show that VS Code started shipping with extra FFmpeg codecs.
+
+This got me wondering whether it was now possible to build the extension after
+all. But before I got into researching that, VS Code has started shipping with
+the video preview feature itself!
+
+https://twitter.com/mattbierner/status/1570857070156746754
+
+That's the best possible outcome and it makes this whole endeavour obsolete, so
+this document is left as a historical artifact and the repository is archived.
 
 ## Installation
 
